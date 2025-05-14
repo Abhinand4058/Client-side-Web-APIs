@@ -5,7 +5,7 @@ const locationName = document.getElementById("locationName");
 const temperature = document.getElementById("temperature");
 const condition = document.getElementById("condition");
 
-// Check if user preferences are stored in local storage
+
 const storedLocation = localStorage.getItem("location");
 
 if (storedLocation) {
@@ -13,17 +13,17 @@ if (storedLocation) {
     getWeather(storedLocation);
 }
 
-// Add event listener to search button
+
 searchButton.addEventListener("click", () => {
     const userLocation = locationInput.value.trim();
     if (userLocation) {
         getWeather(userLocation);
-        // Store user's location in local storage
+       
         localStorage.setItem("location", userLocation);
     }
 });
 
-// Function to fetch weather data from OpenWeatherMap API
+
 function getWeather(location) {
     const apiKey = "YOUR_OPENWEATHERMAP_API_KEY";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
@@ -44,6 +44,6 @@ function getWeather(location) {
         });
 }
 
-// Display weather for New York by default
+
 displayWeather("NewYork");
 
